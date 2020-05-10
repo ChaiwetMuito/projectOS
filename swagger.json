@@ -1,0 +1,229 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Project OS with Operation api + Docker + aws(EC2)",
+    "version": "1.0.0",
+    "title": "Project OS"
+  },
+  "host": "localhost:3000",
+  "schemes": [
+    "http"
+  ],
+  "tags": [
+    {
+      "name": "test",
+      "description": "test swagger"
+    },
+    {
+      "name": "multi",
+      "description": "result A * B"
+    },
+    {
+      "name": "divide",
+      "description": "result A / B"
+    },
+    {
+      "name": "plus",
+      "description": "result A + B"
+    },
+    {
+      "name": "minus",
+      "description": "result A - B"
+    }
+  ],
+  "paths": {
+    "/test": {
+      "get": {
+        "tags": [
+          "test"
+        ],
+        "summary": "test get",
+        "description": "return Hello world (DATE)",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/test"
+            }
+          }
+        }
+      }
+    },
+    "/divide": {
+      "post": {
+        "tags": [
+          "divide"
+        ],
+        "summary": "return A / B",
+        "description": "intput A , B",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/numberAB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation and return result"
+          },
+          "400": {
+            "description": "Invalid number value"
+          }
+        }
+      }
+    },
+    "/multi": {
+      "post": {
+        "tags": [
+          "multi"
+        ],
+        "summary": "return A * B",
+        "description": "intput A , B",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/numberAB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation and return result",
+            "schema": {
+              "$ref": "#/definitions/result"
+            }
+          },
+          "400": {
+            "description": "Invalid number value"
+          }
+        }
+      }
+    },
+    "/minus": {
+      "post": {
+        "tags": [
+          "minus"
+        ],
+        "summary": "return A - B",
+        "description": "intput A , B",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/numberAB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "400": {
+            "description": "Invalid number value"
+          }
+        }
+      }
+    },
+    "/plus": {
+      "post": {
+        "tags": [
+          "plus"
+        ],
+        "summary": "return A + B",
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/numberAB"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/result"
+            }
+          },
+          "400": {
+            "description": "Invalid number value"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "test": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "ผ่านแล้ว"
+        },
+        "result": {
+          "type": "string",
+          "example": "Hello world Sat Dec 21 2019 03:11:22 GMT+0000 (Coordinated Universal Time)"
+        }
+      }
+    },
+    "numberAB": {
+      "type": "object",
+      "properties": {
+        "A": {
+          "type": "integer",
+          "format": "int64",
+          "example": "0"
+        },
+        "B": {
+          "type": "integer",
+          "format": "int64",
+          "example": "0"
+        }
+      }
+    },
+    "result": {
+      "type": "object",
+      "properties": {
+        "Math": {
+          "type": "string",
+          "example": "A operation B"
+        },
+        "result": {
+          "type": "string",
+          "example": "result"
+        }
+      }
+    }
+  }
+}
