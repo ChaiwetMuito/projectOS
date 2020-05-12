@@ -15,7 +15,7 @@
 * docker pull patcwmt/projectos
 * docker run --name projectos -p 3000:3000 patcwmt/projectos
 
-## สมาชิกกลุ่ม
+## สมาชิกกลุ่ม 38
 1. 61050147 นายจักรพันธ์  ลาภวิสุทธิสาโรจน์
 2. 61050165 นายชัยเวท  หมุ่ยโท
 3. 61050166 นายชานน  หลี่
